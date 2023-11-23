@@ -8,6 +8,8 @@ public class SugoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SugoApplication.class, args);
+
+		System.out.println("Sugo Backend is Running!");
 	}
 
 }
