@@ -18,7 +18,6 @@ import com.csit321g3.sugo.Service.UserService;
 
 @RestController
 @CrossOrigin("http://localhost:5173")
-
 public class UserController {
 
     @Autowired

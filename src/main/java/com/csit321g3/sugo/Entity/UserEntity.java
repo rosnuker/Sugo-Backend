@@ -1,10 +1,13 @@
 package com.csit321g3.sugo.Entity;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -26,16 +29,21 @@ public class UserEntity {
     private String role;
     private boolean isDeleted;
 
+    @OneToMany(mappedBy = "user")
+    private List<OrderEntity> order;
+
     public UserEntity() {
     }
 
-    public UserEntity(String fname, String lname, String email, String password, String role, boolean isDeleted) {
+    public UserEntity(String fname, String lname, String email, String password, String role, boolean isDeleted,
+            List<OrderEntity> order) {
         this.fname = fname;
         this.lname = lname;
         this.email = email;
         this.password = password;
         this.role = role;
         this.isDeleted = isDeleted;
+        this.order = order;
     }
 
     public long getUid() {
@@ -92,5 +100,13 @@ public class UserEntity {
 
     public void setDeleted(boolean isDeleted) {
         this.isDeleted = isDeleted;
+    }
+
+    public List<OrderEntity> getOrder() {
+        return order;
+    }
+
+    public void setOrder(List<OrderEntity> order) {
+        this.order = order;
     }
 }

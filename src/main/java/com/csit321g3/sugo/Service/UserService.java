@@ -50,9 +50,9 @@ public class UserService {
             user.setDeleted(true);
 
             urepo.save(user);
-            msg = "Customer " + uid + " is successfully deleted.";
+            msg = "User " + uid + " is successfully deleted.";
         } else {
-            msg = "Customer " + uid + " does not exist.";
+            msg = "User " + uid + " does not exist.";
         }
 
         return msg;
