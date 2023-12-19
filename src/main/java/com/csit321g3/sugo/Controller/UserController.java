@@ -33,7 +33,7 @@ public class UserController {
         return userv.getAllUsers();
     }
 
-    @PutMapping("/updateCustomer")
+    @PutMapping("/updateUser")
     public UserEntity updateUser(@RequestParam Long uid, @RequestBody UserEntity newUserDetails) {
         return userv.updateUser(uid, newUserDetails);
     }
