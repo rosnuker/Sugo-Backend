@@ -30,7 +30,7 @@ public class CourierEntity {
     private boolean isDeleted;
 
     @OneToMany(mappedBy = "courier")
-    private List<OrderEntity> order;
+    private List<OrderEntity> orders;
 
     public CourierEntity() {
     }

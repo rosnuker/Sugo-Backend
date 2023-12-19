@@ -29,21 +29,20 @@ public class UserEntity {
     private String role;
     private boolean isDeleted;
 
+    // @OneToMany(mappedBy = "user")
     @OneToMany(mappedBy = "user")
-    private List<OrderEntity> order;
+    private List<OrderEntity> orders;
 
     public UserEntity() {
     }
 
-    public UserEntity(String fname, String lname, String email, String password, String role, boolean isDeleted,
-            List<OrderEntity> order) {
+    public UserEntity(String fname, String lname, String email, String password, String role, boolean isDeleted) {
         this.fname = fname;
         this.lname = lname;
         this.email = email;
         this.password = password;
         this.role = role;
         this.isDeleted = isDeleted;
-        this.order = order;
     }
 
     public long getUid() {
@@ -102,11 +101,4 @@ public class UserEntity {
         this.isDeleted = isDeleted;
     }
 
-    public List<OrderEntity> getOrder() {
-        return order;
-    }
-
-    public void setOrder(List<OrderEntity> order) {
-        this.order = order;
-    }
 }

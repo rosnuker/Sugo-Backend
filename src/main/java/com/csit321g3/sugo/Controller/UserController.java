@@ -47,4 +47,10 @@ public class UserController {
     public String loginUser(@RequestBody UserEntity user) {
         return userv.loginUser(user);
     }
+
+    @GetMapping("/countUser")
+    public long countUser() {
+        return userv.countUser();
+    }
+    
 }

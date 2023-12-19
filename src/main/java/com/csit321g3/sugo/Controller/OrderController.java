@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.csit321g3.sugo.Entity.CourierEntity;
 import com.csit321g3.sugo.Entity.OrderEntity;
-import com.csit321g3.sugo.Entity.UserEntity;
 import com.csit321g3.sugo.Service.OrderService;
 
 @RestController
@@ -26,8 +24,8 @@ public class OrderController {
     OrderService oserv;
 
     @PostMapping("/addOrder")
-    public OrderEntity addOrder(@RequestBody UserEntity user, @RequestBody OrderEntity order) {
-        return oserv.addOrder(user, order);
+    public OrderEntity addOrder(@RequestParam Long uid, @RequestBody OrderEntity order) {
+        return oserv.addOrder(uid, order);
     }
 
     @GetMapping("/getAllOrders")
@@ -36,8 +34,8 @@ public class OrderController {
     }
 
     @PutMapping("/addCourierToOrder")
-    public OrderEntity addCourierToOrder(@RequestParam Long oid, @RequestBody CourierEntity courier) {
-        return oserv.addCourierToOrder(oid, courier);
+    public OrderEntity addCourierToOrder(@RequestParam Long oid, @RequestParam Long cid) {
+        return oserv.addCourierToOrder(oid, cid);
     }
 
     @PutMapping("/updateOrderStatus")

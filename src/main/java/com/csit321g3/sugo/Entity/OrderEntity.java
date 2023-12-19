@@ -16,6 +16,13 @@ public class OrderEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long oid;
 
+    private double amountToPay;
+    private String method;
+    private String message;
+    private String location;
+    private String status;
+    private boolean isDeleted;
+
     @ManyToOne
     @JoinColumn(name = "uid")
     private UserEntity user;
@@ -23,13 +30,6 @@ public class OrderEntity {
     @ManyToOne
     @JoinColumn(name = "cid")
     private CourierEntity courier;
-
-    private double amountToPay;
-    private String method;
-    private String message;
-    private String location;
-    private String status;
-    private boolean isDeleted;
     
     public OrderEntity() {
     }
@@ -118,5 +118,4 @@ public class OrderEntity {
         this.isDeleted = isDeleted;
     }
 
-    
 }

@@ -8,4 +8,6 @@ import com.csit321g3.sugo.Entity.UserEntity;
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Long>{
     UserEntity findByEmail(String email);
+
+    long count();
 }

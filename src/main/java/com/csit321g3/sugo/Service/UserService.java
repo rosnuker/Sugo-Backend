@@ -72,4 +72,8 @@ public class UserService {
             return "User does not exist.";
         }
     }
+
+    public long countUser() {
+        return urepo.count();
+    }
 }
