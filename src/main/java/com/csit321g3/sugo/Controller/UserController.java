@@ -44,7 +44,7 @@ public class UserController {
     }
 
     @PostMapping("/loginUser")
-    public String loginUser(@RequestBody UserEntity user) {
+    public UserEntity loginUser(@RequestBody UserEntity user) {
         return userv.loginUser(user);
     }
 

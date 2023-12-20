@@ -58,19 +58,18 @@ public class UserService {
         return msg;
     }
 
-    public String loginUser(UserEntity user) {
+    public UserEntity loginUser(UserEntity user) {
         BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
         UserEntity opUser = urepo.findByEmail(user.getEmail());
-
+        int matches = 0;
+        
         if(opUser != null) {
             if(bcrypt.matches(user.getPassword(), opUser.getPassword())) {
-                return "Login Success!";
-            } else {
-                return "Login Failed.";
+                matches = 1;
             }
-        } else {
-            return "User does not exist.";
         }
+
+        return opUser;
     }
 
     public long countUser() {
