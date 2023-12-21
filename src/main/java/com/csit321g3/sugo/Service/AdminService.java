@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties.Admin;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -38,7 +37,7 @@ public class AdminService {
         } catch(NoSuchElementException ex) {
             throw new NoSuchElementException("Admin " + aid + " does not exist.");
         } finally {
-            return arepo.save(admin)
+            return arepo.save(admin);
         }
     }
 
