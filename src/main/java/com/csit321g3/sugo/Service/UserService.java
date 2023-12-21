@@ -71,8 +71,16 @@ public class UserService {
 
         return opUser;
     }
-
-    public long countUser() {
+    
+    public Long countUser() {
         return urepo.count();
+    }
+
+    public String userExists(String email) {
+        if(urepo.findByEmail(email) != null) {
+            return "Exists.";
+        } else {
+            return "Does not exist.";
+        }
     }
 }

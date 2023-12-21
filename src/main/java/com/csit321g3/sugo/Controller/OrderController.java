@@ -17,7 +17,7 @@ import com.csit321g3.sugo.Entity.OrderEntity;
 import com.csit321g3.sugo.Service.OrderService;
 
 @RestController
-@CrossOrigin("http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5173")
 public class OrderController {
 
     @Autowired
@@ -47,4 +47,10 @@ public class OrderController {
     public String deleteUser(@PathVariable Long oid) {
         return oserv.deleteOrder(oid);
     }
+
+    @GetMapping("/countOrder")
+    public Long countOrder() {
+        return oserv.countOrder();
+    }
+
 }

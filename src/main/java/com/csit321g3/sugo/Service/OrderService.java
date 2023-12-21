@@ -51,6 +51,7 @@ public class OrderService {
             if(crepo.findById(cid) != null) {
                 courier = crepo.findById(cid).get();
                 order.setCourier(courier);
+                order.setStatus("Accepted");
             }
             
         } catch(NoSuchElementException ex) {
@@ -89,5 +90,9 @@ public class OrderService {
             msg = "Order " + oid + " does not exist.";
         }
         return msg;
+    }
+
+    public Long countOrder() {
+        return orepo.count();
     }
 }

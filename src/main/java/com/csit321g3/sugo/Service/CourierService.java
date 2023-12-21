@@ -58,18 +58,29 @@ public class CourierService {
         return msg;
     }
 
-    public String loginCourier(CourierEntity courier) {
+    public CourierEntity loginCourier(CourierEntity courier) {
         BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
         CourierEntity opCourier = crepo.findByEmail(courier.getEmail());
+        int matches = 0;
 
         if(opCourier != null) {
             if(bcrypt.matches(courier.getPassword(), opCourier.getPassword())) {
-                return "Login Success!";
-            } else {
-                return "Login Failed.";
-            }
+                matches = 1;
+            } 
+        } 
+
+        return opCourier;
+    }
+
+    public Long countCourier() {
+        return crepo.count();
+    }
+
+    public String courierExists(String email) {
+        if(crepo.findByEmail(email) != null) {
+            return "Exists.";
         } else {
-            return "Courier does not exist.";
+            return "Does not exists.";
         }
     }
 }

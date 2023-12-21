@@ -17,7 +17,7 @@ import com.csit321g3.sugo.Entity.CourierEntity;
 import com.csit321g3.sugo.Service.CourierService;
 
 @RestController
-@CrossOrigin("http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5173")
 public class CourierController {
 
     @Autowired
@@ -44,7 +44,18 @@ public class CourierController {
     }
 
     @PostMapping("/loginCourier")
-    public String loginCourier(@RequestBody CourierEntity courier) {
+    public CourierEntity loginCourier(@RequestBody CourierEntity courier) {
         return cserv.loginCourier(courier);
     }
+
+    @GetMapping("countCourier")
+    public Long countCourier() {
+        return cserv.countCourier();
+    }
+
+    @GetMapping("/courierExists")
+    public String courierExists(@RequestParam String email) {
+        return cserv.courierExists(email);
+    }
+    
 }

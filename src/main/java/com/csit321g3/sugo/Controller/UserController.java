@@ -17,7 +17,7 @@ import com.csit321g3.sugo.Entity.UserEntity;
 import com.csit321g3.sugo.Service.UserService;
 
 @RestController
-@CrossOrigin("http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5173")
 public class UserController {
 
     @Autowired
@@ -49,8 +49,13 @@ public class UserController {
     }
 
     @GetMapping("/countUser")
-    public long countUser() {
+    public Long countUser() {
         return userv.countUser();
+    }
+    
+    @GetMapping("/userExists")
+    public String userExists(@RequestParam String email) {
+        return userv.userExists(email);
     }
     
 }
